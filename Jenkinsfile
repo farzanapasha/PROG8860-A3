@@ -35,10 +35,11 @@ pipeline {
                 withCredentials([azureServicePrincipal('e649048f-b49b-4d7e-93b5-7cab92e8df4d')]) {
                     sh '''
                         /opt/homebrew/bin/az login --service-principal \
-                          -u $AZURE_CLIENT_ID \
-                          -p $AZURE_CLIENT_SECRET \
-                          --tenant $AZURE_TENANT_ID
+                          -u $CLIENT_ID \
+                          -p $CLIENT_SECRET \
+                          --tenant $TENANT_ID
 
+			/opt/homebrew/bin/az account set --subscription $SUBSCRIPTION_ID
                         /Users/farzanapashajahangeer/.nvm/versions/node/v22.14.0/bin/func azure functionapp publish $AZURE_FUNCTIONAPP_NAME
                     '''
                 }
