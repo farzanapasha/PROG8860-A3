@@ -49,6 +49,9 @@ pipeline {
 
 			/opt/homebrew/bin/az account show
 			
+			echo "Directory: $(pwd)"
+			ls -lh
+
 			/Users/farzanapashajahangeer/.nvm/versions/node/v22.14.0/bin/func azure functionapp publish $AZURE_FUNCTIONAPP_NAME
                     '''
                 }
