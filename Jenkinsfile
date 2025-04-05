@@ -8,8 +8,6 @@ pipeline {
     environment {
         AZURE_FUNCTIONAPP_NAME = 'farzanapashastoragefunc'
         RESOURCE_GROUP = 'MyResourceGroup'
-        #NODE_HOME = tool name: 'NodeJS', type: 'NodeJS'
-        #PATH = "${env.NODE_HOME}/bin:${env.PATH}"
     }
 
     stages {
