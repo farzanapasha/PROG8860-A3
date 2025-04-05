@@ -40,11 +40,11 @@ pipeline {
                 	echo "SUBSCRIPTION_ID: $AZURE_SUBSCRIPTION_ID"
 
                         /opt/homebrew/bin/az login --service-principal \
-                          -u $CLIENT_ID \
-                          -p $CLIENT_SECRET \
-                          --tenant $TENANT_ID
+                          -u $AZURE_CLIENT_ID \
+                          -p $AZURE_CLIENT_SECRET \
+                          --tenant $AZURE_TENANT_ID
 
-			/opt/homebrew/bin/az account set --subscription $SUBSCRIPTION_ID
+			/opt/homebrew/bin/az account set --subscription $AZURE_SUBSCRIPTION_ID
                         /Users/farzanapashajahangeer/.nvm/versions/node/v22.14.0/bin/func azure functionapp publish $AZURE_FUNCTIONAPP_NAME
                     '''
                 }
