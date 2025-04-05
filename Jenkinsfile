@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        AZURE_FUNCTIONAPP_NAME = 'farzanapashastoragefunc'
+        AZURE_FUNCTIONAPP_NAME = 'MyFuncAppFarzana'
         RESOURCE_GROUP = 'MyResourceGroup'
     }
 
