@@ -34,10 +34,10 @@ pipeline {
     	    steps {
                 withCredentials([azureServicePrincipal('e649048f-b49b-4d7e-93b5-7cab92e8df4d')]) {
                     sh '''
-			echo "CLIENT_ID: $CLIENT_ID"
-	                echo "CLIENT_SECRET: $CLIENT_SECRET"
-        	        echo "TENANT_ID: $TENANT_ID"
-                	echo "SUBSCRIPTION_ID: $SUBSCRIPTION_ID"
+			echo "CLIENT_ID: $AZURE_CLIENT_ID"
+	                echo "CLIENT_SECRET: $AZURE_CLIENT_SECRET"
+        	        echo "TENANT_ID: $AZURE_TENANT_ID"
+                	echo "SUBSCRIPTION_ID: $AZURE_SUBSCRIPTION_ID"
 
                         /opt/homebrew/bin/az login --service-principal \
                           -u $CLIENT_ID \
