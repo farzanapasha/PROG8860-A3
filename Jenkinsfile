@@ -34,7 +34,7 @@ pipeline {
     	    steps {
                 withCredentials([azureServicePrincipal('e649048f-b49b-4d7e-93b5-7cab92e8df4d')]) {
                     sh '''
-                        az login --service-principal \
+                        /opt/homebrew/bin/az login --service-principal \
                           -u $AZURE_CLIENT_ID \
                           -p $AZURE_CLIENT_SECRET \
                           --tenant $AZURE_TENANT_ID
