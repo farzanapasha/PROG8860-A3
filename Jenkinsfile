@@ -39,7 +39,7 @@ pipeline {
                           -p $AZURE_CLIENT_SECRET \
                           --tenant $AZURE_TENANT_ID
 
-                        func azure functionapp publish $AZURE_FUNCTIONAPP_NAME
+                        /Users/farzanapashajahangeer/.nvm/versions/node/v22.14.0/bin/func azure functionapp publish $AZURE_FUNCTIONAPP_NAME
                     '''
                 }
             }
