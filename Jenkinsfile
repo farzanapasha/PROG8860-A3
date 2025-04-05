@@ -8,6 +8,7 @@ pipeline {
     environment {
         AZURE_FUNCTIONAPP_NAME = 'MyFuncAppFarzana'
         RESOURCE_GROUP = 'MyResourceGroup'
+	PATH = "/opt/homebrew/bin/:/Users/farzanapashajahangeer/.nvm/versions/node/v22.14.0/bin/:$PATH"
     }
 
     stages {
@@ -40,19 +41,19 @@ pipeline {
                 	echo "SUBSCRIPTION_ID: $AZURE_SUBSCRIPTION_ID"
  			echo "$AZURE_FUNCTIONAPP_NAME: $AZURE_FUNCTIONAPP_NAME"
 
-                        /opt/homebrew/bin/az login --service-principal \
+                        az login --service-principal \
                           -u $AZURE_CLIENT_ID \
                           -p $AZURE_CLIENT_SECRET \
                           --tenant $AZURE_TENANT_ID
 
-			/opt/homebrew/bin/az account set --subscription $AZURE_SUBSCRIPTION_ID
+			az account set --subscription $AZURE_SUBSCRIPTION_ID
 
-			/opt/homebrew/bin/az account show
+			az account show
 			
 			echo "Directory: $(pwd)"
 			ls -lh
 
-			/Users/farzanapashajahangeer/.nvm/versions/node/v22.14.0/bin/func azure functionapp publish $AZURE_FUNCTIONAPP_NAME
+			func azure functionapp publish $AZURE_FUNCTIONAPP_NAME
                     '''
                 }
             }
