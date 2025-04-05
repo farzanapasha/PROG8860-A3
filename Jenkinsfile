@@ -45,7 +45,8 @@ pipeline {
                           --tenant $AZURE_TENANT_ID
 
 			/opt/homebrew/bin/az account set --subscription $AZURE_SUBSCRIPTION_ID
-                        /Users/farzanapashajahangeer/.nvm/versions/node/v22.14.0/bin/func azure functionapp publish $AZURE_FUNCTIONAPP_NAME
+
+			/opt/homebrew/bin/az account show
                     '''
                 }
             }
