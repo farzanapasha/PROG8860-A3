@@ -1,12 +1,10 @@
-#    stages {
-#}
-
 pipeline {
     agent any
 
     tools {
         nodejs 'NodeJS'
     }
+
     environment {
         AZURE_FUNCTIONAPP_NAME = 'farzanapashastoragefunc'
         RESOURCE_GROUP = 'MyResourceGroup'
@@ -14,15 +12,15 @@ pipeline {
         PATH = "${env.NODE_HOME}/bin:${env.PATH}"
     }
 
-    stage('Test Node') {
-        steps {
-            sh 'node -v'
-            sh 'npm -v'
-        }
-    }
-
     stages {
-	stage('Checkout Code') {
+        stage('Test Node') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
+            }
+        }
+
+        stage('Checkout Code') {
             steps {
                 checkout scm
             }
@@ -50,3 +48,4 @@ pipeline {
         }
     }
 }
+
