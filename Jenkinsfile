@@ -32,13 +32,9 @@ pipeline {
 
         stage('Deploy to Azure') {
             steps {
-                withCredentials([azureServicePrincipal('AZURE_CREDENTIALS_ID')]) {
-                    sh '''
-                        az login --service-principal \
-                          -u $AZURE_CLIENT_ID \
-                          -p $AZURE_CLIENT_SECRET \
-                          --tenant $AZURE_TENANT_ID
-
+		withCredentials([azureServicePrincipal('credentials_id')]) {
+ 		   sh '''
+			az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
                         func azure functionapp publish $AZURE_FUNCTIONAPP_NAME
                     '''
                 }
