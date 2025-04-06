@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const helloWorldHandler = require('../src/functions/HelloWorld');  // Now importing the handler directly
+const helloWorldHandler = require('../src/functions/HelloWorld');
 
 describe('Azure Function Tests', () => {
     it('should return "Hello Farzana" when name=Farzana is passed', async () => {
