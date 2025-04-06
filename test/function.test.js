@@ -1,4 +1,11 @@
-const { expect } = require('chai');
+let expect;
+
+before(async () => {
+    const chai = await import('chai');
+    expect = chai.expect;
+});
+
+//const { expect } = require('chai');
 const helloWorldHandler = require('../src/functions/HelloWorld');
 
 describe('Azure Function Tests', () => {
