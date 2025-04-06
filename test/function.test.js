@@ -34,5 +34,18 @@ describe('Azure Function Tests', () => {
 
         expect(result.body).to.equal('Hello, world!');
     });
+  
+    it('should return "Hello Farzana Pasha" when name="Farzana Pasha" is passed', async () => {
+        const context = {
+            log: console.log,
+            res: {}
+        };
+        const req = { query: { name: 'Farzana Pasha' }, text: () => '' };  // Simulate query with 'name'
+
+        // Call the function handler directly
+        const result = await helloWorldHandler(req, context);
+
+        expect(result.body).to.equal('Hello, Farzana Pasha!');
+    });
 });
 
